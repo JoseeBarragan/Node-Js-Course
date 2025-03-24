@@ -1,0 +1,40 @@
+# RECUPERAR TODAS LAS PELICULAS
+GET http://localhost:3000/movies
+
+###
+
+# RECUPERAR UNA PELICULA POR ID
+GET http://localhost:3000/movies/1
+
+###
+
+# RECUPERAR TODAS LAS PELICULAS POR GENERO
+GET http://localhost:3000/movies?genre=Action
+
+###
+
+# CREAR UNA PELICULA
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "title": "Avengers",
+  "year": 2012,
+  "director": "Lana Rhoades",
+  "duration": 143,
+  "poster": "https://i.ebayimg.com/images/g/4goAAOSwMyBe7hnQ/s-l1200.jpg",
+  "genre": [
+    "Action"
+  ]
+}
+
+### ACTUALIZAR UNA PELICULA
+PATCH http://localhost:3000/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+Content-Type: application/json
+
+{
+  "title": "Avengers",
+  "year": 2021,
+  "rate": 5
+}
+

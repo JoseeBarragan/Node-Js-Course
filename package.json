@@ -1,0 +1,26 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "Curso de node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node rest.js",
+    "dev1": "node --watch rest.js"
+  },
+  "author": "Joseph",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.21.2",
+    "middleware": "^1.0.0",
+    "picocolors": "^1.1.1",
+    "react": "^19.0.0",
+    "servor": "^4.0.2",
+    "zod": "3.24.2"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}
