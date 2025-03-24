@@ -3,14 +3,14 @@ const app = express();
 const cors = require('cors');
 const crypto = require('node:crypto');
 const movies = require('./movies.json');
-const z = require('zod');
 const { validate, validatePatch } = require('./movies');
 
 
 app.disable('x-powered-by');
 
 app.use(cors());
-const PORT  = process.env.PORT ?? 3000;
+
+const PORT  = process.env.PORT || 3000;
 
 app.use(express.json())
 
@@ -105,6 +105,6 @@ app.use((req, res, next) => {
     res.status(404).send('<h1>Error 404</h1>');
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running at http://localhost:${PORT}/`);
 });
