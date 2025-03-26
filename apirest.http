@@ -4,12 +4,12 @@ GET http://localhost:3000/movies
 ###
 
 # RECUPERAR UNA PELICULA POR ID
-GET http://localhost:3000/movies/c8a7d63f-3b04-44d3-9d95-8782fd7dcfaf
+GET http://localhost:3000/movies/bbba452c-09b6-11f0-b58a-18c04d1bdea7
 
 ###
 
 # RECUPERAR TODAS LAS PELICULAS POR GENERO
-GET http://localhost:3000/movies?genre=Action
+GET http://localhost:3000/movies?genre=Drama
 
 ###
 
@@ -23,22 +23,26 @@ Content-Type: application/json
   "director": "Lana Rhoades",
   "duration": 143,
   "poster": "https://i.ebayimg.com/images/g/4goAAOSwMyBe7hnQ/s-l1200.jpg",
+  "rate": 4,
   "genre": [
     "Action"
   ]
 }
 
 ### ACTUALIZAR UNA PELICULA
-PATCH http://localhost:3000/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+PATCH http://localhost:3000/movies/eb5ef462-0a65-11f0-bcce-18c04d1bdea7
 Content-Type: application/json
 
 {
   "title": "Avengers",
-  "year": 2021,
-  "rate": 5
+  "year": 2012,
+  "rate": 4,
+  "genre": [
+    "Drama"
+  ]
 }
 
 ### ELIMINAR UNA PELICULA
-DELETE http://localhost:3000/movies/c8a7d63f-3b04-44d3-9d95-8782fd7dcfaf
+DELETE http://localhost:3000/movies/7b5b08c8-09ca-11f0-b58a-18c04d1bdea7
 
 

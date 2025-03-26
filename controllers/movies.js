@@ -1,46 +1,49 @@
-import { MovieModel } from '../models/movie.js';
+import { MovieModel } from '../models/mysql/mysql.js';
 import { validate, validatePatch } from '../movies.js';
 
 export class MovieController {
-    static async getAll(req, res){
+    constructor ({movieModel}){
+        this.movieModel = movieModel;
+    }
+    getAll = async (req, res) => {
         const {genre} = req.query;
-        const movies = await MovieModel.getAll({genre});
+        const movies = await this.movieModel.getAll({genre});
         res.status(200).json(movies);
     }
-    static async getById(req, res){
+    getById = async (req, res) => {
         const { id } = req.params;
-        const movie = await MovieModel.getById(id);
+        const movie = await this.movieModel.getById(id);
         if(movie){
             res.status(200).json(movie);
         }else{
             res.status(404).send('<h1>404 Not Found</h1>');
         }
     }
-    static async create(req, res){
+    create = async (req, res) => {
         const movs = validate(req.body);
         if(movs.success === false){
             res.status(400).json(movs.error);
             return;
         }
-        const newmovie = await MovieModel.create(movs.data);
+        const newmovie = await this.movieModel.create(movs.data);
         res.status(201).json(newmovie);
     }
-    static async update(req, res){
+    update = async(req, res) => {
         const result = validatePatch(req.body);
         const { id } = req.params;
-        const movieupdate = await MovieModel.update({
+        const movieupdate = await this.movieModel.update({
             id,
             data: result.data
         });
         return res.json(movieupdate);
     }
-    static async delete(req, res){
+    delete = async (req, res) => {
         const { id } = req.params;
-        const result = await MovieModel.delete({ id });
+        const result = await this.movieModel.delete({ id });
         if(!result){
             res.status(404).send('<h1>404 Not Found</h1>');
             return;
         }
-        res.json({message: 'Movie deleted'});
+        res.json({message: result});
     }
 }

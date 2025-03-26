@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Curso de node",
   "main": "index.js",
-  "type": "module", 
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node rest.js",
+    "start": "node --watch server_sql.js",
     "dev1": "node --watch rest.js"
   },
   "author": "Joseph",
@@ -14,8 +14,11 @@
   "keywords": [],
   "dependencies": {
     "cors": "2.8.5",
+    "dotenv": "^16.4.7",
     "express": "4.21.2",
     "middleware": "^1.0.0",
+    "mongodb": "6.15.0",
+    "mysql2": "^3.14.0",
     "picocolors": "^1.1.1",
     "react": "^19.0.0",
     "servor": "^4.0.2",

@@ -1,7 +1,8 @@
 import express from 'express'
 const app = express()
 import cors from 'cors'
-import { moviesRouter } from './Routes/moviees.js';
+import { createMovieRouter } from './Routes/moviees.js';
+import { MovieModel } from './models/mysql/mysql.js'
 
 
 app.disable('x-powered-by');
@@ -12,7 +13,7 @@ const PORT  = process.env.PORT || 3000;
 
 app.use(express.json())
 
-app.use('/movies', moviesRouter);
+app.use('/movies', createMovieRouter({movieModel: MovieModel}));
 
 app.use((req, res, next) => {
     res.status(404).send('<h1>Error 404</h1>');
